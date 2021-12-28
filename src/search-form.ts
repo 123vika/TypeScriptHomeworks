@@ -5,9 +5,9 @@ export function renderSearchFormBlock() {
   const dayCheckIn = day.getDate() + 1;
   const monthCheckIn = day.getMonth();
   const yearCheckIn = day.getFullYear();
-  const checkInDate = `${dayCheckIn}.${monthCheckIn}.${yearCheckIn}`;
+  const checkInDate = `${yearCheckIn}-${monthCheckIn}-${dayCheckIn}`;
 
-  const checkOutDate = `${dayCheckIn + 2}.${monthCheckIn}.${yearCheckIn}`;
+  const checkOutDate = `${yearCheckIn}-${monthCheckIn}-${dayCheckIn + 2}`;
   console.log(checkInDate);
   console.log(checkOutDate);
   renderBlock(
@@ -30,11 +30,11 @@ export function renderSearchFormBlock() {
           <div>
             <label for="check-in-date">Дата заезда</label>
             <input id="check-in-date" type="date" value="${checkInDate}"
-             min="05-11-2021" max="2025-06-30" name="checkin" />
+             min="05-11-2021" max="30-06-2025" name="checkin" />
           </div>
           <div>
             <label for="check-out-date">Дата выезда</label>
-            <input id="check-out-date" type="date" value="${checkOutDate}" min="2021-05-11" max="2025-06-30" name="checkout" />
+            <input id="check-out-date" type="date" value="${checkOutDate}" min="05-11-2021" max="30-06-2025" name="checkout" />
           </div>
           <div>
             <label for="max-price">Макс. цена суток</label>
@@ -49,4 +49,3 @@ export function renderSearchFormBlock() {
     `
   );
 }
-// 2021-05-11    2021-05-13
