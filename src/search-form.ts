@@ -7,7 +7,7 @@ export function renderSearchFormBlock() {
   const yearCheckIn = day.getFullYear();
   const checkInDate = `${dayCheckIn}.${monthCheckIn}.${yearCheckIn}`;
 
-  const checkOutDate = `(${dayCheckIn + 2}.${monthCheckIn}.${yearCheckIn})`;
+  const checkOutDate = `${dayCheckIn + 2}.${monthCheckIn}.${yearCheckIn}`;
   console.log(checkInDate);
   console.log(checkOutDate);
   renderBlock(
