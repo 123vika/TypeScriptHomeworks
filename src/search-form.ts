@@ -55,7 +55,7 @@ const transformDate = (year: number, month: number, day: number) => {
   return date;
 };
 
-transformDate(2021, 11, 25);
+// transformDate(2021, 11, 25);
 
 export function renderSearchFormBlock() {
   let day = new Date();
