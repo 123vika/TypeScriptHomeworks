@@ -3,11 +3,10 @@ const transformDate = (year: number, month: number, day: number) => {
   let maxDays: number;
   let dayLocal: number;
   let monthLocal: number;
-  // let yearLocal: number;
   let carryMonth: number;
   // console.log(year, month, day, "Input");
 
-  switch (month) {
+  switch (month + 1) {
     case 1:
     case 3:
     case 5:
@@ -40,33 +39,39 @@ const transformDate = (year: number, month: number, day: number) => {
   // console.log(year, carryMonth, month, dayLocal, "Day + 1");
 
   if (carryMonth === 1) {
-    if (month === 12) {
+    if (month === 11) {
       monthLocal = 1;
       year += 1;
     }
   } else {
-    monthLocal = month;
+    monthLocal = month + 1;
     year = year;
     // console.log(year, monthLocal, dayLocal, "Month, year + 1");
   }
+  console.log(monthLocal, dayLocal, "after if");
 
-  const date = `${year}-${monthLocal}-${dayLocal}`;
+  const date = `${year}-${
+    String(monthLocal).length < 2 ? "0" + monthLocal : monthLocal
+  }-${String(dayLocal).length < 2 ? "0" + dayLocal : dayLocal}`;
   console.log(date, "end of function");
   return date;
 };
 
-transformDate(2021, 11, 25);
+// transformDate(2021, 11, 25);
 
 export function renderSearchFormBlock() {
   let day = new Date();
-  const dayCheckIn = day.getDate() + 1;
+  const dayCheckIn = day.getDate();
   const monthCheckIn = day.getMonth();
   const yearCheckIn = day.getFullYear();
 
+  console.log(monthCheckIn);
+  console.log(dayCheckIn);
+
   // console.log(transformDate(2020, 10, 25));
 
-  const checkInDate = `${yearCheckIn}-${monthCheckIn}-${dayCheckIn}`;
-  const checkOutDate = `${yearCheckIn}-${monthCheckIn}-${dayCheckIn + 2}`;
+  const checkInDate = transformDate(yearCheckIn, monthCheckIn, dayCheckIn);
+  const checkOutDate = transformDate(yearCheckIn, monthCheckIn, dayCheckIn + 2);
 
   console.log(checkInDate);
 
@@ -111,4 +116,3 @@ export function renderSearchFormBlock() {
     `
   );
 }
-//
