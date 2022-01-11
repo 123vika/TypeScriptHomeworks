@@ -3,9 +3,7 @@ const transformDate = (year: number, month: number, day: number) => {
   let maxDays: number;
   let dayLocal: number;
   let monthLocal: number;
-  // let yearLocal: number;
   let carryMonth: number;
-  // console.log(year, month, day, "Input");
 
   switch (month + 1) {
     case 1:
@@ -57,8 +55,6 @@ const transformDate = (year: number, month: number, day: number) => {
   return date;
 };
 
-// transformDate(2021, 1, 25);
-
 export function renderSearchFormBlock() {
   let day = new Date();
   const dayCheckIn = day.getDate();
@@ -66,8 +62,6 @@ export function renderSearchFormBlock() {
   const yearCheckIn = day.getFullYear();
   console.log(monthCheckIn);
   console.log(dayCheckIn);
-
-  // console.log(transformDate(2020, 10, 2));
 
   const checkInDate = transformDate(yearCheckIn, monthCheckIn, dayCheckIn);
   const checkOutDate = transformDate(yearCheckIn, monthCheckIn, dayCheckIn + 2);
@@ -115,4 +109,3 @@ export function renderSearchFormBlock() {
     `
   );
 }
-//
